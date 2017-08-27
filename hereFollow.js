@@ -20,10 +20,12 @@
     $.fn[plug] = function(options) {
         var oriX = $(this).offset().left;
         var oriY = $(this).offset().top;
-        var px = event.pageX;
-        var py = event.pageY;
         var showHideBoxHeight = options.showHideBox.outerHeight();
         this.mouseenter(function(event) {
+            var oriX = $(this).offset().left;
+            var oriY = $(this).offset().top;
+            var px = event.pageX;
+            var py = event.pageY;
             if (py < oriY + 2) {
                 $(this).find(options.showHideBox).css({ 'margin-top': -showHideBoxHeight, 'margin-left': '0' }).show(); /*-20指的是需要动态显示的盒子的高度*/
                 $(this).find(options.showHideBox).animate({ marginTop: '0' }, 500)
@@ -38,6 +40,10 @@
                 $(this).find(options.showHideBox).animate({ marginTop: '0' }, 500)
             }
         }).mouseleave(function() {
+            var oriX = $(this).offset().left;
+            var oriY = $(this).offset().top;
+            var px = event.pageX;
+            var py = event.pageY;
             if (oriY - 5 < py && py < oriY + 5) {
                 $(this).find(options.showHideBox).animate({ marginTop: -showHideBoxHeight }, 500);
             } else if ((oriX + $(this).outerWidth() - 5) < px && px < (oriX + $(this).outerWidth() + 5)) { //+1 -1消除0.5像素的误差
@@ -50,4 +56,3 @@
         })
     }
 }, "hereFollow");
-
