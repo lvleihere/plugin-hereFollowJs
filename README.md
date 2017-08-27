@@ -6,7 +6,7 @@
 #
 #
 /*
-*name：基于jquery的鼠标跟随进入插件编写
+*name：基于jquery的鼠标跟随进入插件编写<br>
 *autohr：lvleihere
 *date：2017/8/27
 *version:v1.0
